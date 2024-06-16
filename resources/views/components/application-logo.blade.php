@@ -1,0 +1,1 @@
+<img src="{{ Storage::url('files/images/logo.png') }}" alt="Logo" width="30">
