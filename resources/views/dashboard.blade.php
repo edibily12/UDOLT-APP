@@ -14,7 +14,8 @@
 
         @if(auth()->user()->isManager())
             <!-- start::Stats -->
-            <livewire:dashboard.manager-panel />
+                <livewire:dashboard.stats />
+                <livewire:dashboard.manager-panel />
             <!-- end::Stats -->
         @endif
 

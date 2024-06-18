@@ -45,6 +45,7 @@ new class extends Component {
                     <thead class="h-12 border-y-4 border-gray-500">
                     <th>#</th>
                     <th>Passenger</th>
+                    <th>Source</th>
                     <th>Destination</th>
                     <th></th>
                     <th>Amount</th>
@@ -56,6 +57,7 @@ new class extends Component {
                             <tr class="text-gray-700 text-center">
                                 <td class="py-2">{{ $sno++ }}</td>
                                 <td>{{ $todayRoute->user->name }}</td>
+                                <td>{{ "N/A" }}</td>
                                 <td>{{ $todayRoute->destination }}</td>
                                 <td></td>
                                 <td>{{ Number::currency($todayRoute->amount, 'Tsh') }}</td>
@@ -74,10 +76,12 @@ new class extends Component {
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                         <td class="font-bold">Today</td>
                         <td>{{ Number::currency($summary['amount_today'] ?? 0, 'Tsh') }}</td>
                     </tr>
                     <tr class="text-center">
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -88,6 +92,7 @@ new class extends Component {
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                         <td class="font-bold">This Month</td>
                         <td>{{ Number::currency($summary['amount_this_month'] ?? 0, 'Tsh') }}</td>
                     </tr>
@@ -95,10 +100,12 @@ new class extends Component {
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                         <td class="font-bold">This Year</td>
                         <td>{{ Number::currency($summary['amount_this_year'] ?? 0, 'Tsh') }}</td>
                     </tr>
                     <tr class="text-center">
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

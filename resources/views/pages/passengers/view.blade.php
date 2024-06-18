@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\RouteStatus;
 use App\Events\ConfirmRoute;
 use App\Jobs\DeletePassenger;
 use App\Models\Payment;
@@ -77,6 +78,13 @@ new class extends Component {
         ConfirmRoute::dispatch();
     }
 
+    public function deletePassenger($id)
+    {
+        $passenger = Passenger::findOrFail($id);
+        $passenger->forceDelete();
+        return redirect()->route('dashboard');
+    }
+
 
 }; ?>
 
@@ -84,7 +92,7 @@ new class extends Component {
     <!-- start::Inbox -->
     <div class="w-full bg-white shadow-xl rounded-lg flex overflow-x-auto custom-scrollbar">
         <div class="w-64 px-4">
-            @if($passenger->status === \App\Enums\RouteStatus::PENDING)
+            @if($passenger->status === RouteStatus::PENDING)
                 @if(!$passenger->confirmed)
                     <div class="h-16 flex items-center">
                         <x-buttons.primary wire:click="confirmOrCancelRoute({{ $passenger->id }})"
@@ -122,7 +130,7 @@ new class extends Component {
                             <span class="font-black">Fee: {{ "Tsh ".number_format( $amount) }} </span>
                         </h4>
                     </li>
-                    @if($passenger->status === \App\Enums\RouteStatus::PENDING)
+                    @if($passenger->status === RouteStatus::PENDING)
                         @php
                             $parameters = json_encode([
                                 'passengerId' => $passenger->id,
@@ -165,7 +173,7 @@ new class extends Component {
                     </h1>
                 </div>
             </div>
-            @if($passenger->status === \App\Enums\RouteStatus::PENDING)
+            @if($passenger->status === RouteStatus::PENDING)
                 <div class="mb-6">
                     {{--         passenger map --}}
                     <h4 class="text-lg text-gray-800 font-bold pb-2 mb-4 border-b-2">
@@ -181,6 +189,11 @@ new class extends Component {
                     </div>
 
                 </div>
+            @elseif($passenger->status === RouteStatus::ABORTED)
+                <h4 class="text-lg text-red-600 font-bold pb-2 mb-4 border-b-2">
+                    <span class="font-black">Route Canceled by passenger</span>
+                </h4>
+                <x-buttons.danger wire:click="deletePassenger({{ $passenger->id }})">Delete</x-buttons.danger>
             @else
                 <h4 class="text-lg text-green-600 font-bold pb-2 mb-4 border-b-2">
                     <span class="font-black">Route completed</span>

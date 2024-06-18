@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\RouteStatus;
 use App\Helpers\Helper;
 use App\Models\Passenger;
 use Livewire\Attributes\On;
@@ -62,7 +63,8 @@ new class extends Component {
                             <a href="{{ route('dashboard') }}" wire:navigate>
                                 <button title="Reload"
                                         class="text-gray-700 px-2 py-1 border border-gray-300 rounded-lg shadow hover:bg-gray-200 transition duration-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                         viewBox="0 0 24 24"
                                          stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                               d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
@@ -87,6 +89,7 @@ new class extends Component {
                                         <div class="flex items-center">
                                             <span class="w-56 pr-2 truncate">{{ $passenger->user->name }}</span>
                                             <span class="w-64 truncate">{{ $passenger->user->name }}</span>
+                                            <span class="w-64 truncate {{ $passenger->status === RouteStatus::ABORTED ? 'text-red-400' : 'text-gray-500' }}">{{ $passenger->status }}</span>
                                         </div>
                                         <div class="w-32 flex items-center justify-end">
                                             <span class="text-sm text-gray-500">

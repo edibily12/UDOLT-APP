@@ -40,5 +40,10 @@ class Passenger extends Model
         return $this->hasMany(Payment::class);
     }
 
+    public function place(): BelongsTo
+    {
+        return $this->belongsTo(Places::class);
+    }
+
 
 }

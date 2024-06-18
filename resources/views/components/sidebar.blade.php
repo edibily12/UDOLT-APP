@@ -161,8 +161,8 @@
                         x-data="{ linkHover: false }"
                         @mouseover = "linkHover = true"
                         @mouseleave = "linkHover = false"
-                        href="{{ route('dashboard') }}"
-                        class="flex items-center text-gray-400 px-6 py-3 cursor-pointer hover:bg-black hover:bg-opacity-30 transition duration-200 {{ request()->routeIs('dashboard') ? 'bg-gray-700' : '' }}"
+                        href="{{ route('passengers.pending') }}"
+                        class="flex items-center text-gray-400 px-6 py-3 cursor-pointer hover:bg-black hover:bg-opacity-30 transition duration-200 {{ request()->routeIs('passengers.pending') ? 'bg-gray-700' : '' }}"
                 >
 
                     <span

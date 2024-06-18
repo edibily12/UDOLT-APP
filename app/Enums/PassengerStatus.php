@@ -2,9 +2,9 @@
 
 namespace App\Enums;
 
-enum RouteStatus: string
+enum PassengerStatus: string
 {
-    case PROCESSED = 'processed';
     case PENDING = 'pending';
+    case ACTIVE = 'active';
     case ABORTED = 'aborted';
 }
