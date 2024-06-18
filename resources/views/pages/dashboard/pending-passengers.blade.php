@@ -8,7 +8,7 @@ use Livewire\Volt\Component;
 new class extends Component {
     public $passengers;
 
-    public function mount()
+    public function mount(): void
     {
         $this->passengers = Passenger::whereStatus(RouteStatus::PENDING)->get();
     }

@@ -89,6 +89,7 @@ namespace App\Models{
  * @property-read \App\Models\Driver $driver
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Payment> $payments
  * @property-read int|null $payments_count
+ * @property-read \App\Models\Places|null $place
  * @property-read \App\Models\User $user
  * @method static \Database\Factories\PassengerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Passenger newModelQuery()
@@ -175,6 +176,8 @@ namespace App\Models{
  * @property string|null $longitude
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Passenger> $passengers
+ * @property-read int|null $passengers_count
  * @method static \Database\Factories\PlacesFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Places newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Places newQuery()

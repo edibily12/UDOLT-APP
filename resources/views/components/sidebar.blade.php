@@ -169,7 +169,7 @@
                             class="ml-3 transition duration-200"
                             class="linkHover ? 'text-gray-100' : ''"
                     >
-                            Passengers
+                            Pending Routes
                         </span>
                 </a>
                 <!-- end::Menu link -->

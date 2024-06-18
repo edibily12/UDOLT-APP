@@ -234,7 +234,7 @@ new class extends Component {
                                     Destination distance: <strong>{{ ceil($destinationDistance) }} </strong>
                                 </div>
                                 <div class="ms-3 text-sm font-medium">
-                                    Cost: <strong>Tsh: {{ number_format(ceil($destinationDistance)*1000) }} </strong>
+                                    Cost: <strong>Tsh: {{ number_format(ceil($destinationDistance)*500) }} </strong>
                                 </div>
                             </div>
                         @endif

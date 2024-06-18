@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\UserType;
 use App\Models\Role;
 use Livewire\Volt\Component;
 
@@ -28,14 +29,14 @@ new class extends Component {
         $user = \App\Models\User::create([
             'name' => $this->name,
             'email' => $this->email,
-            'type' => \App\Enums\UserType::DRV->value,
+            'type' => UserType::DRV->value,
             'phone' => $this->phone,
-            'password' => bcrypt('password')
+            'password' => bcrypt('1234')
         ]);
 
         $user->driver()->create([
-           'nida' => $this->nida,
-           'license_number' => $this->license_number
+            'nida' => $this->nida,
+            'license_number' => $this->license_number
         ]);
 
         $user->roles()->sync(Role::where('name', \App\Enums\RoleName::DRV->value)->first());

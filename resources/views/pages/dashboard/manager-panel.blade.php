@@ -45,8 +45,8 @@ new class extends Component {
                     <thead class="h-12 border-y-4 border-gray-500">
                     <th>#</th>
                     <th>Passenger</th>
-                    <th>Source</th>
                     <th>Destination</th>
+                    <th></th>
                     <th></th>
                     <th>Amount</th>
                     </thead>
@@ -57,8 +57,8 @@ new class extends Component {
                             <tr class="text-gray-700 text-center">
                                 <td class="py-2">{{ $sno++ }}</td>
                                 <td>{{ $todayRoute->user->name }}</td>
-                                <td>{{ "N/A" }}</td>
                                 <td>{{ $todayRoute->destination }}</td>
+                                <td></td>
                                 <td></td>
                                 <td>{{ Number::currency($todayRoute->amount, 'Tsh') }}</td>
                             </tr>
