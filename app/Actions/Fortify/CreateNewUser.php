@@ -6,6 +6,7 @@ use App\Enums\RoleName;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
@@ -41,6 +42,7 @@ class CreateNewUser implements CreatesNewUsers
         ]);
 
         $user->roles()->sync(Role::whereName(RoleName::PSNG->value)->first());
+        \session()->flash('user_registered', true);
         return $user;
     }
 }

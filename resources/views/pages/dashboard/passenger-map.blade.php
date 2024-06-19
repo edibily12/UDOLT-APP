@@ -150,7 +150,6 @@ new class extends Component {
 
 <div>
     <div class="pt-1">
-
         @if($nearestDrivers)
             <div class="bg-white rounded-lg shadow-xl p-8">
                 <div class="flex items-center justify-between">
@@ -205,6 +204,22 @@ new class extends Component {
                         </x-buttons.primary>
                     </div>
                 @else
+
+                    @session('user_registered')
+                        <div id="alert-border-3"
+                             class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 "
+                             role="alert">
+                            <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                 fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                            </svg>
+                            <div class="ms-3 text-sm font-medium">
+                                <strong>Registration successfully. your password is 1234, make sure to change it</strong>
+                            </div>
+                        </div>
+                    @endsession
+
+
                     <form wire:submit.prevent="findNearestDrivers" class="mb-8">
                         <div class="grid grid-cols-1 gap-4">
                             <div class="flex flex-col my-4">
@@ -244,7 +259,6 @@ new class extends Component {
                             {{ __('FIND DRIVER') }}
                         </x-buttons.success>
                     </form>
-
                 @endif
 
                 <div class="flex items-center justify-between">
